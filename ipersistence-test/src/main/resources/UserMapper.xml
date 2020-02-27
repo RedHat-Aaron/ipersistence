@@ -1,0 +1,21 @@
+<mapper namespace="com.athena.dao.IUserDao">
+    <select id="findAll" resultType="com.athena.pojo.User">
+        SELECT * FROM user
+    </select>
+
+    <select id="findByCondition" resultType="com.athena.pojo.User" parameterType="com.athena.pojo.User">
+        SELECT * FROM user WHERE id = #{id} AND username = #{username}
+    </select>
+
+    <insert id="insertUser" resultType="java.lang.Integer" parameterType="com.athena.pojo.User">
+        INSERT INTO user VALUES(#{id},#{username});
+    </insert>
+
+    <delete id="deleteUser" resultType="java.lang.Integer" parameterType="com.athena.pojo.User">
+        DELETE FROM user WHERE id = #{id};
+    </delete>
+
+    <update id="updateUser" resultType="java.lang.Integer" parameterType="com.athena.pojo.User">
+        UPDATE user SET username = #{username} WHERE id = #{id};
+    </update>
+</mapper>
